@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'django.contrib.staticfiles',
     'coreapp.apps.CoreappConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -90,14 +91,14 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Bufify API',
-    'DESCRIPTION': 'An Bug Tracking Solution',
+    'TITLE': 'Portfolio API',
+    'DESCRIPTION': 'Portfolio API',
     'VERSION': '1.0.0',
     'SCHEMA_PATH_PREFIX': '/api/v[0-9]',
     'SERVE_INCLUDE_SCHEMA': False,
     'CONTACT': {
-        'name': 'Techtsy Ltd',
-        'email': 'info@techtsy.com'
+        'name': 'rak1b',
+        'email': 'rak13.dev@gmail.com'
     },
     # OTHER SETTINGS
 }
@@ -136,13 +137,8 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 AUTH_USER_MODEL = 'coreapp.User'
-CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000"
-]
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 # Email (Email settings)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')

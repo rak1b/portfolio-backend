@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         choices=constants.GenderChoices.choices,
         blank=True, null=True
     )
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    country = models.CharField(max_length=100, null=True, blank=True)
     wallet = models.DecimalField(
         max_digits=10, decimal_places=2, default=0.00
     )
